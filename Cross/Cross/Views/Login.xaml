@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cross.Views.Login">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="لطفا شماره موبایل خود را وارد نمایید." Margin="15"  />
+            <Entry Placeholder="شماره موبایل" Margin="15" Keyboard="Numeric" x:Name="txtMobile"/>
+            <Button Text="ورود" Margin="15" Clicked="btnSubmit_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
