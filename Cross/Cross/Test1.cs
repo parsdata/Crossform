@@ -8,6 +8,6 @@ namespace Cross
 {
     class Test1
     {
-        //Test1
+        //Test2
     }
 }
