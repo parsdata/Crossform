@@ -9,13 +9,13 @@ namespace Cross
 {
     public partial class App : Application
     {
-        
+
 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new Cross.MainPage();
+            MainPage = new Cross.Views.Login();
         }
 
         protected override void OnStart()
