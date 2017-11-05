@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using SQLite;
+using SQLitePCL;
 
 namespace Cross
 {
@@ -24,7 +26,7 @@ namespace Cross
             var json = JsonConvert.SerializeObject(person);
             var person2 = JsonConvert.DeserializeObject<Person>(json);
 
-            lblTitle.Text = "Welcome 4";
+            lblTitle.Text = "Welcome 5";
         }
     }
 }
