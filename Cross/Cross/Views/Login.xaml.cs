@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +19,42 @@ namespace Cross.Views
             InitializeComponent();
         }
 
-        private void btnSubmit_Clicked(object sender, EventArgs e)
+        private async void btnSubmit_Clicked(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(txtMobile.Text))
+            {
+                //TODO: Get Device ID
+                string sDeviceID = "123456";
 
+                //TODO: Get Google ID - Notifiction
+                string sGID = "123456";
+
+                Cross.Data.Service.ApiServices clsApiService = new Cross.Data.Service.ApiServices();
+
+                string sAppID = clsApiService.RegisterAsync(txtMobile.Text, sDeviceID, sGID);
+                if (sAppID != "")
+                {
+
+                    SQLiteConnection _sqLiteConnection;
+                    _sqLiteConnection = DependencyService.Get<Cross.Data.SQLite.ISQLite>().GetConnection();
+
+                    var list = _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("SELECT * FROM Base_User");
+
+                    //await Navigation.PushAsync(new Confrim(sAppID));
+                    await DisplayAlert("پیغام ", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
+
+
+
+                }
+                else
+                {
+                    await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
+                }
+            }
+            else
+            {
+                await DisplayAlert("پیغام خطا", "لطفا شماره موبایل را وارد نمایید.", "بستن");
+            }
         }
     }
 }
