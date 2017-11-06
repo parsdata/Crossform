@@ -34,17 +34,7 @@ namespace Cross.Views
                 string sAppID = clsApiService.RegisterAsync(txtMobile.Text, sDeviceID, sGID);
                 if (sAppID != "")
                 {
-
-                    SQLiteConnection _sqLiteConnection;
-                    _sqLiteConnection = DependencyService.Get<Cross.Data.SQLite.ISQLite>().GetConnection();
-
-                    var list = _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("SELECT * FROM Base_User");
-
-                    //await Navigation.PushAsync(new Confrim(sAppID));
-                    await DisplayAlert("پیغام ", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
-
-
-
+                    await Navigation.PushAsync(new Confrim(sAppID));
                 }
                 else
                 {

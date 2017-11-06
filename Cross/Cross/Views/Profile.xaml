@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cross.Views.Profile">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Entry Placeholder="نام و نام خانوادگی" Margin="15" x:Name="txtFullName">
+                <!--<Entry.Behaviors>
+                    <local:EntryLengthValidatorBehavior MaxLength="50" />
+                </Entry.Behaviors>-->
+            </Entry>
+            <Button Text="ادامه" Margin="15" Clicked="btnAction_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

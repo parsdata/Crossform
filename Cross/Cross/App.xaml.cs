@@ -15,7 +15,7 @@ namespace Cross
         {
             InitializeComponent();
 
-            MainPage = new Cross.Views.Login();
+            MainPage = new NavigationPage(new Cross.Views.Login());
         }
 
         protected override void OnStart()

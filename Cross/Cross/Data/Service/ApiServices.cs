@@ -45,5 +45,62 @@ namespace Cross.Data.Service
             }
             return sResult;
         }
+        public int CheckActivationCode(string sAppID, string sActivationCode)
+        {
+            string url = "http://beta.api.parsdata.com/Register/CheckActivationCode/" + sAppID + "/" + sActivationCode;
+
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = client.GetAsync(url).Result)
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        var sJSON = content.ReadAsStringAsync().Result;
+
+                        Dictionary<string, string> DataValue = JsonConvert.DeserializeObject<Dictionary<string, string>>(sJSON.Replace("[", "").Replace("]", ""));
+                        bool bStatus = bool.Parse(DataValue["Status"]);
+                        string sFullName = DataValue["FullName"];
+                        int iResult = 0;
+                        if (bStatus == false)
+                        {
+                            iResult = 0;
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(sFullName))
+                            {
+                                iResult = 1;
+                            }
+                            else
+                            {
+                                iResult = 2;
+                            }
+                        }
+
+                        return iResult;
+                    }
+                }
+            }
+        }
+        public bool SetProfile(string sUserID, string sFullName)
+        {
+            string url = "http://beta.api.parsdata.com/Register/SetProfile/" + sUserID + "/" + sFullName;
+
+
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = client.GetAsync(url).Result)
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        var sJSON = content.ReadAsStringAsync().Result;
+
+                        Dictionary<string, string> DataValue = JsonConvert.DeserializeObject<Dictionary<string, string>>(sJSON.Replace("[", "").Replace("]", ""));
+                        bool bStatus = bool.Parse(DataValue["Status"]);
+                        return bStatus;
+                    }
+                }
+            }
+        }
     }
 }
