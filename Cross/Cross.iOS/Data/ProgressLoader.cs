@@ -17,11 +17,11 @@ namespace Cross.iOS.Data
     {
         public ProgressLoader()
         { }
-        public void Hide()
+        public void HideLoading()
         {
             BTProgressHUD.Dismiss();
         }
-        public void Show(string sTitle = "Loading")
+        public void ShowLoading(string sTitle = "Loading")
         {
             BTProgressHUD.Show(sTitle, maskType: ProgressHUD.MaskType.Black);
         }

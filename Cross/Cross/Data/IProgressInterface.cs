@@ -8,7 +8,7 @@ namespace Cross.Data
 {
     public interface IProgressInterface
     {
-        void Show(string sTitle = "Loading");
-        void Hide();
+        void ShowLoading(string sTitle = "Loading");
+        void HideLoading();
     }
 }

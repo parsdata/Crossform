@@ -20,8 +20,8 @@ namespace Cross
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Show();
-            Hide();
+            ShowLoading();
+            HideLoading();
         }
     }
 }

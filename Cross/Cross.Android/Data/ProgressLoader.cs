@@ -21,11 +21,11 @@ namespace Cross.Droid.Data
     {
         public ProgressLoader()
         { }
-        public void Hide()
+        public void HideLoading()
         {
             AndHUD.Shared.Dismiss();
         }
-        public void Show(string sTitle = "Loading")
+        public void ShowLoading(string sTitle = "Loading")
         {
             Device.BeginInvokeOnMainThread(() =>
             {

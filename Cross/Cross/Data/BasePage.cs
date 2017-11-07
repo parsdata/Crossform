@@ -9,13 +9,13 @@ namespace Cross.Data
 {
     public class BasePage : ContentPage
     {
-        public void Show()
+        public void ShowLoading()
         {
-            DependencyService.Get<IProgressInterface>().Show();
+            DependencyService.Get<IProgressInterface>().ShowLoading();
         }
-        public void Hide()
+        public void HideLoading()
         {
-            DependencyService.Get<IProgressInterface>().Hide();
+            DependencyService.Get<IProgressInterface>().HideLoading();
         }
         public BasePage()
         { }

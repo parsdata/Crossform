@@ -28,7 +28,7 @@ namespace Cross.Views
             
             if (!string.IsNullOrEmpty(txtMobile.Text))
             {
-                Show();
+                ShowLoading();
                 string sDeviceOS = "0";
                 switch (Device.RuntimePlatform)
                 {
@@ -57,11 +57,11 @@ namespace Cross.Views
                 if (sAppID != "")
                 {
                     await Navigation.PushAsync(new Confrim(sAppID));
-                    Hide();
+                    HideLoading();
                 }
                 else
                 {
-                    Hide();
+                    HideLoading();
                     await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
                 }
             }
