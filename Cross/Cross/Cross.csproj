@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\DeviceID.cs" />
     <Compile Include="Data\Service\ApiServices.cs" />
     <Compile Include="Data\SQLite\ISQLite.cs" />
     <Compile Include="Data\SQLite\T-SQL\Base_User_TSQL.cs" />

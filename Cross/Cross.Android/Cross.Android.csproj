@@ -140,6 +140,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DeviceID_Android.cs" />
     <Compile Include="Data\SQLite\SQLite_Android.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

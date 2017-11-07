@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Cross.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,17 +14,21 @@ namespace Cross.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
+        #region [Page]
         public Login()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region [Form]
         private async void btnSubmit_Clicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtMobile.Text))
             {
+                Cross.Data.DeviceID clsDeviceID;
                 //TODO: Get Device ID
-                string sDeviceID = "123456";
+                string sDeviceID = DependencyService.Get<DeviceID>().GetDeviceID(); ;
 
                 //TODO: Get Google ID - Notifiction
                 string sGID = "123456";
@@ -46,5 +50,6 @@ namespace Cross.Views
                 await DisplayAlert("پیغام خطا", "لطفا شماره موبایل را وارد نمایید.", "بستن");
             }
         }
+        #endregion
     }
 }

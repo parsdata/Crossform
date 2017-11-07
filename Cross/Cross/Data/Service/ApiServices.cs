@@ -34,12 +34,20 @@ namespace Cross.Data.Service
 
                         _sqLiteConnection.CreateTable<Cross.Data.SQLite.Table.Base_User>();
 
-                        _sqLiteConnection.Insert(new Cross.Data.SQLite.Table.Base_User
+                        var listRow = _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("SELECT * FROM Base_User WHERE AppID = '" + DataValue["AppID"] + "'");
+                        if (listRow.Count != 0)
                         {
-                            UserID = DataValue["UserID"],
-                            AppID = DataValue["AppID"],
-                            ActivationCode = DataValue["ActivationCode"]
-                        });
+                            _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("UPDATE Base_User SET ActivationCode='" + DataValue["ActivationCode"] + "' WHERE AppID = '" + DataValue["AppID"] + "'");
+                        }
+                        else
+                        {
+                            _sqLiteConnection.Insert(new Cross.Data.SQLite.Table.Base_User
+                            {
+                                UserID = DataValue["UserID"],
+                                AppID = DataValue["AppID"],
+                                ActivationCode = DataValue["ActivationCode"]
+                            });
+                        }
                     }
                 }
             }

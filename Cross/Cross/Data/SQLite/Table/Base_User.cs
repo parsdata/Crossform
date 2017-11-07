@@ -17,5 +17,7 @@ namespace Cross.Data.SQLite.Table
         public string AppID { get; set; }
 
         public string ActivationCode { get; set; }
+
+        //public bool IsActive { get; set; }
     }
 }
