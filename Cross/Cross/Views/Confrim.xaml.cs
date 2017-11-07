@@ -15,7 +15,7 @@ using Xamarin.Forms.Xaml;
 namespace Cross.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Confrim : ContentPage
+    public partial class Confrim : Data.BasePage
     {
         public string sAppID;
         public Confrim(string AppID)

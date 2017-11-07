@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Cross.Data;
 using Xamarin.Forms;
 
 namespace Cross
@@ -14,8 +14,10 @@ namespace Cross
         public App()
         {
             InitializeComponent();
-
+            DependencyService.Register<IProgressInterface>();
+            //MainPage = new NavigationPage(new Cross.Views.Login());
             MainPage = new NavigationPage(new Cross.Views.Login());
+
         }
 
         protected override void OnStart()

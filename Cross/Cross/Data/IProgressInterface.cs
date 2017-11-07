@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cross
+namespace Cross.Data
 {
-    class Test1
+    public interface IProgressInterface
     {
-        //Test2
-
-        //Test4
+        void Show(string sTitle = "Loading");
+        void Hide();
     }
 }

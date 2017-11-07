@@ -12,9 +12,9 @@ namespace Cross.Data.Service
 {
     public class ApiServices
     {
-        public string RegisterAsync(string sMobile, string sDID, string sGID)
+        public string RegisterAsync(string sMobile, string sDeviceOS, string sDID, string sGID)
         {
-            string url = "http://beta.api.parsdata.com/Register/GetRegisterByMobile/" + sMobile + "/1/" + sDID + "/" + sGID + "";
+            string url = "http://beta.api.parsdata.com/Register/GetRegisterByMobile/" + sMobile + "/" + sDeviceOS + "/" + sDID + "/" + sGID + "";
             string sResult = string.Empty;
 
             using (HttpClient client = new HttpClient())

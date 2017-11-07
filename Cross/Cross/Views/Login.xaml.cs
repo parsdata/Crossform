@@ -12,21 +12,39 @@ using Xamarin.Forms.Xaml;
 namespace Cross.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login : ContentPage
+    public partial class Login : BasePage
     {
         #region [Page]
         public Login()
         {
             InitializeComponent();
+           
         }
         #endregion
 
         #region [Form]
         private async void btnSubmit_Clicked(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrEmpty(txtMobile.Text))
             {
-                Cross.Data.DeviceID clsDeviceID;
+                Show();
+                string sDeviceOS = "0";
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.iOS:
+                        sDeviceOS = "2";
+                        break;
+                    case Device.Android:
+                        sDeviceOS = "1";
+                        break;
+                    case Device.WinPhone:
+                        sDeviceOS = "3";
+                        break;
+                    case Device.UWP:
+                        sDeviceOS = "4";
+                        break;
+                }
                 //TODO: Get Device ID
                 string sDeviceID = DependencyService.Get<DeviceID>().GetDeviceID(); ;
 
@@ -35,13 +53,15 @@ namespace Cross.Views
 
                 Cross.Data.Service.ApiServices clsApiService = new Cross.Data.Service.ApiServices();
 
-                string sAppID = clsApiService.RegisterAsync(txtMobile.Text, sDeviceID, sGID);
+                string sAppID = clsApiService.RegisterAsync(txtMobile.Text, sDeviceOS, sDeviceID, sGID);
                 if (sAppID != "")
                 {
                     await Navigation.PushAsync(new Confrim(sAppID));
+                    Hide();
                 }
                 else
                 {
+                    Hide();
                     await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
                 }
             }
