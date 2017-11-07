@@ -26,7 +26,7 @@ namespace Cross
             var json = JsonConvert.SerializeObject(person);
             var person2 = JsonConvert.DeserializeObject<Person>(json);
 
-            lblTitle.Text = "Welcome 6";
+            lblTitle.Text = "Welcome 8";
         }
     }
 }
