@@ -13,7 +13,7 @@
                 </Entry.Behaviors>-->
             </Entry>
             <Button Text="ورود" Margin="15" Clicked="btnSubmit_Clicked"/>
-            <Label Text="v1.0.0" Margin="15"  />
+            <Label Text="v1.0.1" Margin="15"  />
         </StackLayout>
     </ContentPage.Content>
 </local:BasePage>
