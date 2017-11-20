@@ -45,9 +45,13 @@ namespace Cross.Data.Service
                             {
                                 UserID = DataValue["UserID"],
                                 AppID = DataValue["AppID"],
-                                ActivationCode = DataValue["ActivationCode"]
+                                ActivationCode = DataValue["ActivationCode"],
+                                Mobile = Data.Base.Convert._MobileFormat(sMobile),
+                                FullName = "",
+                                IsActive = false
                             });
                         }
+                        _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("UPDATE Base_User SET IsActive='0'");
                     }
                 }
             }
@@ -75,6 +79,13 @@ namespace Cross.Data.Service
                         }
                         else
                         {
+                            SQLiteConnection _sqLiteConnection;
+                            _sqLiteConnection = DependencyService.Get<Cross.Data.SQLite.ISQLite>().GetConnection();
+                            _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("UPDATE Base_User SET IsActive='1' , FullName='" + sFullName + "' WHERE AppID = '" + sAppID + "'");
+
+                            App.sAppID = sAppID;
+                            App.IsActive = true;
+                            App.sFullName = sFullName;
                             if (!string.IsNullOrEmpty(sFullName))
                             {
                                 iResult = 1;
@@ -94,6 +105,9 @@ namespace Cross.Data.Service
         {
             string url = "http://beta.api.parsdata.com/Register/SetProfile/" + sUserID + "/" + sFullName;
 
+            SQLiteConnection _sqLiteConnection;
+            _sqLiteConnection = DependencyService.Get<Cross.Data.SQLite.ISQLite>().GetConnection();
+            _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("UPDATE Base_User SET FullName='" + sFullName + "' WHERE UserID = '" + sUserID + "'");
 
             using (HttpClient client = new HttpClient())
             {
@@ -102,6 +116,7 @@ namespace Cross.Data.Service
                     using (HttpContent content = response.Content)
                     {
                         var sJSON = content.ReadAsStringAsync().Result;
+
 
                         Dictionary<string, string> DataValue = JsonConvert.DeserializeObject<Dictionary<string, string>>(sJSON.Replace("[", "").Replace("]", ""));
                         bool bStatus = bool.Parse(DataValue["Status"]);

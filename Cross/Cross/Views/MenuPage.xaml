@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cross.Views.MenuPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu"
+                 BackgroundColor="#e8e8e8">
+
+            <StackLayout Orientation="Vertical">
+                <StackLayout BackgroundColor="#2196F3"
+                     HeightRequest="150">
+                    <Image Source="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg"/>
+                    <Label x:Name="lblFullName"
+                 FontSize="12"
+                 TextColor="White"
+                 HorizontalOptions="Center"/>
+                    <Label x:Name="lblCredit" Margin="0,5,15,5" Text="اعتبار شما: 500,000 تومان" HorizontalOptions="End" TextColor="White"/>
+                </StackLayout>
+
+                <ListView x:Name="navigationDrawerList"
+                  RowHeight="60"
+                  SeparatorVisibility="None"
+                  BackgroundColor="#e8e8e8"
+                  ItemSelected="OnMenuItemSelected">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <!-- Main design for our menu items -->
+                                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"
+                             Orientation="Horizontal"
+                             Padding="0,10,20,10"
+                             Spacing="20">
+                                    <Label Text="{Binding Title}"
+                         FontSize="Medium"
+                         VerticalOptions="Center"
+                         TextColor="Black"/>
+                                    <Image Source="{Binding Icon}"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         VerticalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

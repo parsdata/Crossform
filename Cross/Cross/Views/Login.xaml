@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Cross.Data"
-             x:Class="Cross.Views.Login">
+             x:Class="Cross.Views.Login"
+             xmlns:local="clr-namespace:Cross.Data.Validate">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="لطفا شماره موبایل خود را وارد نمایید." Margin="15"  />
-            <Entry Placeholder="شماره موبایل" Margin="15" Keyboard="Numeric" x:Name="txtMobile">
+            <Label Text="لطفا شماره موبایل خود را وارد نمایید." Margin="15" HorizontalOptions="End"  />
+            <Entry Placeholder="شماره موبایل" Margin="15" Keyboard="Numeric" x:Name="txtMobile" HorizontalTextAlignment="End">
                 <!--<Entry.Behaviors>
                     <local:MobileValidatorBehavior />
                     <local:EntryLengthValidatorBehavior MaxLength="11" />
                 </Entry.Behaviors>-->
             </Entry>
             <Button Text="ورود" Margin="15" Clicked="btnSubmit_Clicked"/>
-            <Label Text="v1.0.1" Margin="15"  />
+
+            <Label Text="Ver 1.0.3" Margin="15"  VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
-</local:BasePage>
+</ContentPage>

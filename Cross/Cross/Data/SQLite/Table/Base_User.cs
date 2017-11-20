@@ -18,6 +18,10 @@ namespace Cross.Data.SQLite.Table
 
         public string ActivationCode { get; set; }
 
-        //public bool IsActive { get; set; }
+        public string Mobile { get; set; }
+
+        public string FullName { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

@@ -12,23 +12,20 @@ using Xamarin.Forms.Xaml;
 namespace Cross.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login : BasePage
+    public partial class Login : ContentPage
     {
         #region [Page]
         public Login()
         {
             InitializeComponent();
-           
         }
         #endregion
 
         #region [Form]
         private async void btnSubmit_Clicked(object sender, EventArgs e)
         {
-            
             if (!string.IsNullOrEmpty(txtMobile.Text))
             {
-                ShowLoading();
                 string sDeviceOS = "0";
                 switch (Device.RuntimePlatform)
                 {
@@ -45,6 +42,7 @@ namespace Cross.Views
                         sDeviceOS = "4";
                         break;
                 }
+
                 //TODO: Get Device ID
                 string sDeviceID = DependencyService.Get<DeviceID>().GetDeviceID(); ;
 
@@ -56,12 +54,11 @@ namespace Cross.Views
                 string sAppID = clsApiService.RegisterAsync(txtMobile.Text, sDeviceOS, sDeviceID, sGID);
                 if (sAppID != "")
                 {
-                    await Navigation.PushAsync(new Confrim(sAppID));
-                    HideLoading();
+                    App.sAppID = sAppID;
+                    await Navigation.PushModalAsync(new Confrim());
                 }
                 else
                 {
-                    HideLoading();
                     await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
                 }
             }

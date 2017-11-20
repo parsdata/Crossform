@@ -17,10 +17,10 @@ namespace Cross.Views
     public partial class Profile : ContentPage
     {
         private string sAppID;
-        public Profile(string AppID)
+        public Profile()
         {
             InitializeComponent();
-            sAppID = AppID;
+            sAppID = App.sAppID;
             NavigationPage.SetHasBackButton(this, false);
         }
 
@@ -35,28 +35,52 @@ namespace Cross.Views
                 if (list.Count != 0)
                 {
                     string sUserID = list[0].UserID;
-                   Cross.Data.Service.ApiServices clsApiService = new Cross.Data.Service.ApiServices();
+                    Cross.Data.Service.ApiServices clsApiService = new Cross.Data.Service.ApiServices();
 
                     bool bResult = clsApiService.SetProfile(sUserID, txtFullName.Text);
                     if (bResult)
                     {
-                        await Navigation.PushAsync(new ChatList(sAppID));
+                        await Navigation.PushModalAsync(new MenuPage(), false);
                     }
                     else
                     {
                         await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
-
                     }
                 }
                 else
                 {
                     await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
-
                 }
             }
             else
             {
-                await Navigation.PushAsync(new ChatList(sAppID));
+                SQLiteConnection _sqLiteConnection;
+
+                _sqLiteConnection = DependencyService.Get<Cross.Data.SQLite.ISQLite>().GetConnection();
+
+                _sqLiteConnection.CreateTable<Cross.Data.SQLite.Table.Base_User>();
+
+                var listRow = _sqLiteConnection.Query<Cross.Data.SQLite.Table.Base_User>("SELECT * FROM Base_User WHERE AppID = '" + sAppID + "' LIMIT 1");
+                if (listRow.Count != 0)
+                {
+                    foreach (var baseUser in listRow)
+                    {
+                        string sFullName = string.Empty;
+                        sFullName = baseUser.FullName;
+                        if (string.IsNullOrEmpty(sFullName))
+                        {
+                            sFullName = baseUser.Mobile;
+                        }
+                        App.sFullName = sFullName;
+                    }
+                    await Navigation.PushModalAsync(new MenuPage(), false);
+                }
+                else
+                {
+                    App.sAppID = string.Empty;
+                    App.IsActive = false;
+                    await Navigation.PushModalAsync(new Login(), false);
+                }
             }
         }
     }

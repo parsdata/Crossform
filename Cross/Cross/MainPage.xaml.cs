@@ -10,18 +10,23 @@ using SQLitePCL;
 
 namespace Cross
 {
-    public partial class MainPage : Data.BasePage
+    public partial class MainPage : ContentPage
     {
+        public class Person
+        {
+            public string Name { get; set; }
+            public DateTime Birthday { get; set; }
+        }
+
         public MainPage()
         {
             InitializeComponent();
             
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ShowLoading();
-            HideLoading();
+            var person = new Person { Name = "Bob", Birthday = new DateTime(1987, 2, 2) };
+            var json = JsonConvert.SerializeObject(person);
+            var person2 = JsonConvert.DeserializeObject<Person>(json);
+
+            lblTitle.Text = "Welcome 6";
         }
     }
 }

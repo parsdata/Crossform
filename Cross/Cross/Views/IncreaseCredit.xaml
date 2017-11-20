@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cross.Views.IncreaseCredit">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lblCredit" Margin="0,5,15,5" Text="اعتبار شما: 500,000 تومان" HorizontalOptions="End"/>
+            <Entry Placeholder="مبلغ" Margin="15" Keyboard="Numeric" x:Name="txtAmount" HorizontalTextAlignment="Center">
+                <!--<Entry.Behaviors>
+                    <local:MobileValidatorBehavior />
+                    <local:EntryLengthValidatorBehavior MaxLength="11" />
+                </Entry.Behaviors>-->
+            </Entry>
+            <Button Text="پرداخت / ادامه" Margin="15" Clicked="btnSubmit_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
