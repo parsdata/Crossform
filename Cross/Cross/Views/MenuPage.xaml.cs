@@ -28,8 +28,8 @@ namespace Cross.Views
             var page1 = new MasterPageItem() { Title = "افزایش اعتبار", Icon = "itemIcon1.png", TargetType = typeof(IncreaseCredit) };
             var page2 = new MasterPageItem() { Title = "انتقال به بانک", Icon = "itemIcon2.png", TargetType = typeof(NoPage) };
             var page3 = new MasterPageItem() { Title = "گزارش", Icon = "itemIcon3.png", TargetType = typeof(NoPage) };
-            var page4 = new MasterPageItem() { Title = "دعوت از دوستان", Icon = "itemIcon4.png", TargetType = typeof(NoPage) };
-            var page5 = new MasterPageItem() { Title = "درباره ما", Icon = "itemIcon5.png", TargetType = typeof(NoPage) };
+            var page4 = new MasterPageItem() { Title = "تماس ها", Icon = "itemIcon4.png", TargetType = typeof(Contacts) };
+            var page5 = new MasterPageItem() { Title = "درباره ما", Icon = "itemIcon5.png", TargetType = typeof(AboutUs) };
             var page6 = new MasterPageItem() { Title = "پشتیبانی", Icon = "itemIcon6.png", TargetType = typeof(NoPage) };
             var page7 = new MasterPageItem() { Title = "تنظیمات", Icon = "itemIcon7.png", TargetType = typeof(NoPage) };
             var page8 = new MasterPageItem() { Title = "خروج", Icon = "itemIcon8.png", TargetType = typeof(NoPage) };
