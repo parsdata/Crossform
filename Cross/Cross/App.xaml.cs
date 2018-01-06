@@ -11,9 +11,11 @@ namespace Cross
     public partial class App : Application
     {
         public static string sAppID = string.Empty;
+        public static string sUserID = string.Empty;
         public static string sFullName = string.Empty;
         public static bool IsActive = false;
-
+        public static string sCredit = string.Empty;
+        public static string sMessage = string.Empty;
 
         public App()
         {
@@ -36,6 +38,7 @@ namespace Cross
                 foreach (var baseUser in listRow)
                 {
                     sAppID = baseUser.AppID;
+                    sUserID = baseUser.UserID;
                     sFullName = baseUser.FullName;
                     if (string.IsNullOrEmpty(sFullName))
                     {
@@ -49,7 +52,6 @@ namespace Cross
             {
                 MainPage = new Views.Login();
             }
-            // Handle when your app starts
         }
 
         protected override void OnSleep()

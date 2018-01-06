@@ -23,5 +23,7 @@ namespace Cross.Data.SQLite.Table
         public string FullName { get; set; }
 
         public bool IsActive { get; set; }
+        public string UserName { get; set; }
+
     }
 }

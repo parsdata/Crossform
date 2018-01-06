@@ -20,40 +20,40 @@ namespace Cross.Views
         {
             InitializeComponent();
 
-            lblAppID.Text = App.sAppID;
+            //lblAppID.Text = App.sAppID;
 
-            this.contactViewModel = new ContactViewModel();
-            listView = new ListView
-            {
-                RowHeight = 40
-            };
+            //this.contactViewModel = new ContactViewModel();
+            //listView = new ListView
+            //{
+            //    RowHeight = 40
+            //};
 
-            var layout = new StackLayout()
-            {
-                // Padding = new Thickness(10, 0, 10, 0),
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                Children = { this.listView }
-            };
+            //var layout = new StackLayout()
+            //{
+            //    // Padding = new Thickness(10, 0, 10, 0),
+            //    VerticalOptions = LayoutOptions.FillAndExpand,
+            //    Children = { this.listView }
+            //};
 
-            this.Content = layout;
-
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-
-            var cell = new DataTemplate(typeof(TextCell));
-            cell.SetBinding(TextCell.TextProperty, "FirstName");
-            cell.SetBinding(TextCell.DetailProperty, "LastName");
-
-
-            listView.ItemTemplate = cell;
-
-            await this.contactViewModel.BindContcts();
-
-            listView.ItemsSource = this.contactViewModel.ContactList;
+            //this.Content = layout;
 
         }
+
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
+
+        //    var cell = new DataTemplate(typeof(TextCell));
+        //    cell.SetBinding(TextCell.TextProperty, "FirstName");
+        //    cell.SetBinding(TextCell.DetailProperty, "Phone");
+
+
+        //    listView.ItemTemplate = cell;
+
+        //    await this.contactViewModel.BindContcts();
+
+        //    listView.ItemsSource = this.contactViewModel.ContactList;
+
+        //}
     }
 }

@@ -2,18 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cross.Views.Login"
-             xmlns:local="clr-namespace:Cross.Data.Validate">
+             xmlns:local="clr-namespace:Cross.Data.Base.Validate">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="لطفا شماره موبایل خود را وارد نمایید." Margin="15" HorizontalOptions="End"  />
             <Entry Placeholder="شماره موبایل" Margin="15" Keyboard="Numeric" x:Name="txtMobile" HorizontalTextAlignment="End">
-                <!--<Entry.Behaviors>
-                    <local:MobileValidatorBehavior />
+                <Entry.Behaviors>
+                    <local:MobileValidatorBehavior/>
                     <local:EntryLengthValidatorBehavior MaxLength="11" />
-                </Entry.Behaviors>-->
+                </Entry.Behaviors>
             </Entry>
             <Button Text="ورود" Margin="15" Clicked="btnSubmit_Clicked"/>
-
             <Label Text="Ver 1.0.3" Margin="15"  VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"/>
         </StackLayout>
     </ContentPage.Content>

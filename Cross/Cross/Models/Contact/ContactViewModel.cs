@@ -23,7 +23,7 @@ namespace Cross.Models.Contact
                 var allAddress = await addressBook.GetContacts();
                 foreach (var c in allAddress)
                 {
-                    var name = c.FirstName + " " + c.LastName ;
+                    var name = c.FirstName + " " + c.Phone ;
                 }
 
                 this.ContactList = new ObservableCollection<Contacts>(allAddress);

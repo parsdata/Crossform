@@ -37,14 +37,14 @@ namespace Cross.Views
                     string sUserID = list[0].UserID;
                     Cross.Data.Service.ApiServices clsApiService = new Cross.Data.Service.ApiServices();
 
-                    bool bResult = clsApiService.SetProfile(sUserID, txtFullName.Text);
+                    bool bResult = clsApiService.SetProfile(sUserID, txtFullName.Text, txtUsername.Text);
                     if (bResult)
                     {
                         await Navigation.PushModalAsync(new MenuPage(), false);
                     }
                     else
                     {
-                        await DisplayAlert("پیغام خطا", "خطا در پردازش اطلاعات، لطفا مجددا تلاش نمایید.", "بستن");
+                        await DisplayAlert("پیغام خطا", App.sMessage, "بستن");
                     }
                 }
                 else

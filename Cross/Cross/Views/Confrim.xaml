@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cross.Views.Confrim">
+             x:Class="Cross.Views.Confrim"
+             xmlns:local="clr-namespace:Cross.Data.Base.Validate">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="کد فعالسازی را وارد نمایید." Margin="15"  />
             <Entry Placeholder="کد فعالسازی" Margin="15" Keyboard="Numeric" x:Name="txtActiveCode">
-                <!--<Entry.Behaviors>
-                    <local:MobileValidatorBehavior />
+                <Entry.Behaviors>
                     <local:EntryLengthValidatorBehavior MaxLength="4" />
-                </Entry.Behaviors>-->
+                </Entry.Behaviors>
             </Entry>
             <Button Text="ارسال مجدد" Margin="15" IsVisible="False" x:Name="btnReSend"/>
             <Button Text="ادامه" Margin="15" Clicked="btnAction_Clicked"/>

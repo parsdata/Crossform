@@ -4,6 +4,8 @@
              x:Class="Cross.Views.Profile">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
+            <Entry Placeholder="نام کاربری" Margin="15" x:Name="txtUsername">
+            </Entry>
             <Entry Placeholder="نام و نام خانوادگی" Margin="15" x:Name="txtFullName">
                 <!--<Entry.Behaviors>
                     <local:EntryLengthValidatorBehavior MaxLength="50" />

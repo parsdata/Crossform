@@ -39,6 +39,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Base\Convert.cs" />
+    <Compile Include="Data\Base\Validate\EntryLengthValidatorBehavior.cs" />
+    <Compile Include="Data\Base\Validate\MobileValidatorBehavior.cs" />
     <Compile Include="Data\DeviceID.cs" />
     <Compile Include="Data\Interface\IAddressBookInformation.cs" />
     <Compile Include="Data\Service\ApiServices.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="Models\Contacts.cs" />
     <Compile Include="Models\Contact\BaseViewModel.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />
+    <Compile Include="Models\Contact\PhoneViewModel.cs" />
     <Compile Include="Models\MenuItem\MasterPageItem.cs" />
     <Compile Include="Models\MessageHandling.cs" />
     <Compile Include="Models\Register.cs" />
@@ -62,8 +65,14 @@
     <Compile Include="Views\Confrim.xaml.cs">
       <DependentUpon>Confrim.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Friends.xaml.cs">
+      <DependentUpon>Friends.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\IncreaseCredit.xaml.cs">
       <DependentUpon>IncreaseCredit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InviteFriends.xaml.cs">
+      <DependentUpon>InviteFriends.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -76,6 +85,15 @@
     </Compile>
     <Compile Include="Views\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestSearchBar.xaml.cs">
+      <DependentUpon>TestSearchBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferToBank.xaml.cs">
+      <DependentUpon>TransferToBank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferToReceiver.xaml.cs">
+      <DependentUpon>TransferToReceiver.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +194,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\IncreaseCredit.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\InviteFriends.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Friends.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TestSearchBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TransferToBank.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TransferToReceiver.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

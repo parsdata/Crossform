@@ -12,6 +12,7 @@ using Android.Widget;
 using Cross.Data.Interface;
 using Cross.Models;
 using Cross.Droid.Data;
+using Cross.Models.Contact;
 using System.Threading.Tasks;
 using Xamarin.Contacts;
 using Xamarin.Forms;
@@ -49,15 +50,24 @@ namespace Cross.Droid.Data
                     {
                         Console.WriteLine("No contacts found");
                     }
-
+                    //book.Select(x => x.Phones).Distinct();
                     foreach (Contact contact in book)
                     {
+                        foreach (var phone in contact.Phones)
+                        {
+                            //if (contact.DisplayName.Contains("Mehrdad"))
+                            //{
+                            //    contacts.Add(new Contacts() { FirstName = contact.DisplayName, Phone = phone.Number });
+                            //}
+                            contacts.Add(new Contacts() { FirstName = contact.DisplayName, Phone = phone.Number });
+                            contacts = contacts.OrderBy(x => x.FirstName).ToList();
+                        }
                         // Note: on certain android device(Htc for example) it show name in DisplayName Field
-                        contacts.Add(new Contacts() { FirstName = contact.FirstName, LastName = contact.LastName });
+
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { }
 
             return contacts;

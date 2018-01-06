@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cross.Views.TransferToReceiver">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lblCredit" Margin="0,5,15,5" HorizontalOptions="End"/>
+            <Entry Placeholder="کد پذیرنده" Margin="15" Keyboard="Numeric" x:Name="txtReceiver" HorizontalTextAlignment="Center">
+                <!--<Entry.Behaviors>
+                    <local:MobileValidatorBehavior />
+                    <local:EntryLengthValidatorBehavior MaxLength="11" />
+                </Entry.Behaviors>-->
+            </Entry>
+            <Entry Placeholder="مبلغ" Margin="15" Keyboard="Numeric" x:Name="txtAmount" HorizontalTextAlignment="Center">
+                <!--<Entry.Behaviors>
+                    <local:MobileValidatorBehavior />
+                    <local:EntryLengthValidatorBehavior MaxLength="11" />
+                </Entry.Behaviors>-->
+            </Entry>
+            <Entry x:Name="txtDescription"  Margin="15" HorizontalTextAlignment="End" Placeholder="توضیحات"></Entry>
+            <Button Text="انتقال" Margin="15" Clicked="btnSubmit_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
